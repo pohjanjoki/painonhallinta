@@ -1,12 +1,18 @@
-"""
-    Moduli, jonka funktioilla lasketaan painoindeksi ja kehon rasvaprosentti
+# Modulin funktioilla voidaan laskea painoindeksi (BMI) ja kehon rasvaprosentti
+
+# Funktioiden määrittelyt
+
+# Painoindeksi
+def bmi(paino, pituus):
+    """Laskee painoindeksin kaavalla paino jaettuna pituuden neliöllä
+
+    Args:
+        paino (float):paino kiloina (kg)
+        pituus (float): pituus metreinä (m)
+
+    Returns:
+        float: painoindeksi
     """
-
-    # Kirjastojen lataukset
-
-
-    # Luokkien ja funktioiden määritykset
-
-
-
-    # Koodi, joka suoritetaan vain jos tämä tiedosto käynnistetään konsolista, esim "testit"
+    painoindeksi = paino / pituus ** 2
+    return painoindeksi
+    

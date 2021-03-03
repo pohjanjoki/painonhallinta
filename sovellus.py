@@ -1,26 +1,29 @@
-    """
-    Painonhallintasovelluksen pääohjelma
-    Huolehtii syötteen lukemisesta ja tulosten näyttämisestä
+# Tämä on painonhallintasovelluksen pääohjelma
 
-    """
+# Kirjastojen ja modulien käyttöönotot
+import sanity
+from laskenta import *
 
-    # Kirjastojen ja modulien lataukset
+# Varsinaisen pääohjelman alku
 
+# Komponenttien alustukset
 
-    # Pääohjelman omat luokat, funktiot ja kirjastokomponenttien alustukset
+# Työsilmukka, ikuinen silmukka, jossa on poistumistoiminto (ehto True on aina voimassa)
+uusi = 'K'
+while True:
 
-    # Pääohjelman ikuinen silmukka
-    jatketaan = 'K'
-    while True:
-        while virhekoodi != 0:
-            paino_str = input('Paino kiloina: ')
-          
+    # Kysytään käyttäjältä paino
+    paino_str = input('Paino (kg)? ')
+    paino = sanity.on_jarkeva(paino_str, 20, 300)
+
+    pituus_str = input('Pituus (m)? ')
+    pituus = sanity.on_jarkeva(pituus_str, 1, 3)
+
+    print('Painoindeksisi on', bmi(paino, pituus))
+    # Poistuminen ikuisesta silmukasta
+    uusi = input('Lasketaanko uuden henkilön rasvaprosentti? (K/E)')
+    if uusi == 'E':
+        break
         
-        pituus_str = input('Pituus metreinä: ')
-        ika_str = input('ikä vuosina: ')
-        sukupuoli_str = input('Nainen 0, Mies 1: ')
-        jatketaan = input('Haluatko jatkaa K/e? ')
 
-        # TODO: tee rutiini oletusarvolle K
-        if jatketaan != 'K':
-            break
+
