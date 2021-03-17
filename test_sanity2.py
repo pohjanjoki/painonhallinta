@@ -17,6 +17,29 @@ def test_rajatarkistus_yli():
 
 # LIUKULUKUMUUNNOS TESTIT
 
+# Syötteenä kokonaisluku, virhekoodi 0, virheilmoitus Syöte OK, arvo liukulukuna
+def test_liukuluku_kokonaisluku():
+    assert sanity2.liukuluvuksi('15') == [0, 'Syöte OK', 15.0]
+
+# Syötteenä liukuluku, jossa desimaalipiste
+def test_liukuluku_liukuluku():
+    assert sanity2.liukuluvuksi('15.0'): == [0, 'Syöte OK', 15.0]
+
+# Syötteenä liukuluku, jossa desimaalipilkku: automaattinen korjaus
+def test_liukuluku_liukuluku():
+    assert sanity2.liukuluvuksi('15,0'): == [0, 'Syöte OK', 15.0]
+
+# Syötteenä liukuluku, jossa useampi desimaalipiste: virhe
+def test_liukuluku_liukuluku():
+    assert sanity2.liukuluvuksi('15.0.7'): == [0, 'Syöte OK', 15.0]
+
+# Syötteenä liukuluku, jossa useampi desimaalipilkku: virhe
+def test_liukuluku_liukuluku():
+    assert sanity2.liukuluvuksi('15,0,7'): == [0, 'Syöte OK', 15.0]
+
+# Syötteenä mukana kirjaimia
+def test_liukuluku_liukuluku():
+    assert sanity2.liukuluvuksi('15.0 kg'): == [0, 'Syöte OK', 15.0]
 
 
 
