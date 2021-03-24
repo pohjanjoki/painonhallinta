@@ -56,7 +56,7 @@ def liukuluvuksi(syote):
         arvo = float(syote)
     else:
         virhekoodi = 2
-        virhesanoma = 'Syötteessä ylimäärisiä merkkejä: vain numerot ja desimaalipiste on sallittu'   
+        virhesanoma = 'Syötteessä ylimäärisiä merkkejä: vain numerot ja desimaalipiste tai pilkku on sallittu'   
     
     # Muodostetaan funktion paluuarvo ja palautetaan se
     paluuarvo = [virhekoodi, virhesanoma, arvo]

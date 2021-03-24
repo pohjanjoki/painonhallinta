@@ -4,11 +4,12 @@
 
 # Painoindeksi
 def bmi(paino, pituus):
-    """Laskee painoindeksin kaavalla paino jaettuna pituuden neliöllä
+    
+    """Laskee painoindeksin kaavalla paino jaettuna pituuden sadaosan neliöllä
 
     Args:
-        paino (float):paino kiloina (kg)
-        pituus (float): pituus senttimetreinä (cm)
+        paino (float): paino kiloina (kg)
+        pituus (float): pituus senntimetreinä (cm)
 
     Returns:
         float: painoindeksi
@@ -16,9 +17,9 @@ def bmi(paino, pituus):
     painoindeksi = paino / (pituus/100) ** 2
     return painoindeksi
     
-# Aikuisen rasvaprosentti
+# Rasvaprosentti
 def rasvaprosentti(bmi, ika, sukupuoli):
-    """Laskee aikuisen henkilön kehon rasvaprosentin
+    """Laskee henkilön kehon rasvaprosentin
 
     Args:
         bmi (float): painoindeksi
@@ -28,23 +29,14 @@ def rasvaprosentti(bmi, ika, sukupuoli):
     Returns:
         float: kehon rasvaprosentti
     """
-    rprosentti = 1.2 * bmi + 0.23 * ika - 10.8 * sukupuoli - 5.4
+    # Aikuisen rasvaprosentti
+    if ika >= 18:
+        rprosentti = 1.2 * bmi + 0.23 * ika - 10.8 * sukupuoli - 5.4
+    else:
+        # Lapsen rasvaprosentti
+        rprosentti = 1.51 * bmi - 0.70 * ika - 3.6 * sukupuoli + 1.4
+    
     return rprosentti
-
-# Lapsen rasvaprosentti
-def lapsen_rasvaprosentti(bmi, ika, sukupuoli):
-    """Laskee lapsen kehon rasvaprosentin
-
-    Args:
-        bmi (float): painoindeksi
-        ika (float): ikä vuosina
-        sukupuoli (int): 1 - Miehet, 0 - Naiset
-
-    Returns:
-        float: kehon rasvaprosentti
-    """
-    lapsen_rprosentti = 1.51 * bmi - 0.7 * ika - 3.6 * sukupuoli + 1.4
-    return lapsen_rprosentti
 
 # Testit
 if __name__ == '__main__':
@@ -56,6 +48,6 @@ if __name__ == '__main__':
     print('Pituus:', pituus, 'Paino:', paino, 'Painoindeksi', omabmi) 
 
     # 2. testi oma rasvaprosentti
-    ika = 9
+    ika = 59
     sukupuoli = 1
-    print('Rasvaprosentti:', lapsen_rasvaprosentti(omabmi, ika, sukupuoli))
+    print('Rasvaprosentti:', rasvaprosentti(omabmi, ika, sukupuoli))
