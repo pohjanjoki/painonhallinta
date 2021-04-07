@@ -32,6 +32,7 @@ def toteamus():
     print('Kyllä se siitä, herra presidentti')
 
 if __name__ == "__main__":
+
     henkilotiedot = kysy_henkilotiedot()
     print(henkilotiedot)
 

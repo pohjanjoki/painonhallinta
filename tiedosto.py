@@ -27,3 +27,4 @@ with open('data.txt', 'a') as tallentaja:
 # Luetaan tiedot with open()-rakenteen avulla
 with open('data.txt', 'r') as lukija:
     print(lukija.read())
+

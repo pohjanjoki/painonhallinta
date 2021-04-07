@@ -44,4 +44,3 @@ print(eka.etunimi, eka.sukunimi, eka.rasvaprosentti())
 # Otetaan listan viimeinen olio pois ja tulostetaan sen tietoja
 viimeinen = lista.pop()
 print(viimeinen.etunimi, viimeinen.sukunimi, viimeinen.rasvaprosentti())
-

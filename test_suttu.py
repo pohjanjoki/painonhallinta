@@ -1,10 +1,10 @@
-# Testaan suttu.py:n funktioiden toiminnot
+# Testaan sutty.py:n funktioiden toiminnot
 
-# Moduulien ja kirjastojen lataukset
+# Modulien ja kirjastojen lataukset
 import suttu
 
-# Testaan syötettä
-def test_kysy_henkikotiedot(monkeypatch):
+# Testataan syötettä
+def test_kysy_henkilotiedot(monkeypatch):
     syote = 'mika vainio'
 
     # Korvataan Pythonin sisäinen input-funktio muuttujalla syöte
@@ -17,3 +17,4 @@ def test_toteamus(capsys):
     naytto, virhe = capsys.readouterr()
     assert naytto == 'Kyllä se siitä, herra presidentti\n'
     assert virhe == ''
+    
